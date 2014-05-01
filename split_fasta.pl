@@ -1,4 +1,9 @@
 #! /usr/bin/perl
+
+#This code can be downloaded from http://code.google.com/p/nash-bioinformatics-codelets/downloads/list
+#Users are responsible for uploading the latest version of the code
+#Please note the copyright notice.
+
 use warnings;
 use strict;
 use Text::Wrap;
