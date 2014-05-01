@@ -1,0 +1,19 @@
+*************************
+Running emm_pipeline.pl
+*************************
+
+Dependencies for this pipeline are the same as those required for SRST2, the A5 pipeline, and Mosaik Aligner version 1, and blastall. As well, the provided split_fasta.pl and modified SRST2_mosaik.py scripts must be added to the path in order for it to be accessed by the pipeline.
+
+The execution line for the pipeline is as follows:
+
+perl emm_pipeline.pl --fastq_directory /path/to/fastq/directory --scoreName Scores_output_name --emm_db emm.fasta --emm_definitions emm_reference.txt --mga_genes mga_mrp_scpA_enn.fasta
+
+where emm_pipeline.pl is the provided pipeline script, /path/to/fastq/directory is the path to the directory of the fastq files to be analyzed (Note: must be a full directory path, all fastq files in the folder will be analyzed), emm.fasta is the emm database in fasta format, emm_reference.txt is the emm definitions as required by SRST2, and mga_mrp_scpA_enn.fasta is a fasta file containing conserved regions of the mga, mrp, scpA, and enn genes (provided at the end of this supplementary materials file). The pipeline requires paired-end reads, there are optional commands --forward and --reverse used to indicate the names of the forward and reverse pairs, otherwise the program will assume pairs are named as _R1 and _R2 by default. The fastq file names should not contain periods (.) as this will disrupt the reading of the strain name based on the input files.
+
+All parameters are optional.  If the fastq directory is not provided then the current working directory will be used.  If the current working directory does not contain fastq files, then the user will be prompted to provide an appropriate working directory.  If the database and fasta files are not provided, then they will be looked for in the directory containing the emm_pipeline.pl script.  If the directory containing the script does not contain the database and fasta files, then the user will be prompted to provide these files.  To access the help file, the user can enter emm_pipeline.pl --help.
+
+The pipeline runs the SRST2 analysis using Mosaik Aligner Version 1, as the aligner. Once SRST2 has run the output is moved into separate directories. The SRST2 score files are read and the three emm alleles with the best SRST2 scores are recorded. Strains with two or more allele SRST2 scores below 10 then undergo de novo assembly through the A5 pipeline. The final scaffolds from the de novo assembly are then blasted against mga, mrp, enn, scpA and the selected emm alleles. The orientation of the emm alleles is determined based on the blast results.
+
+Output from this pipeline analysis is contained in the directory “Pipeline.” This directory contains the de novo assembled genomes, the BLAST databases of the assembled genomes, BLAST results, summarized BLAST results in “BLAST_Results.txt”, a graphic of the approximate allele orientation based on BLAST results in “BLAST_map.txt”, a list of determined emm-like genes in “Emm_like_genes.txt”, a list of the three emm alleles with the best SRST2 scores for each strain in “Top3Scores.txt”, a list of the top three scores with SRST2 scores below 10 in “top3_lessThan10.txt”, and the final results in “final_emm_Results.txt.”
+
+Provided files: emm_pipeline.pl, SRST2_Mosaik.py altered to run using the Mosaik aligner, split_fasta.pl, mga_mrp_scpA_enn.fasta, emm.fasta, emm_reference.txt
