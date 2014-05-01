@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 
+#This code is a modification of the original SRST2 code.
+#The original code and the license can be downloaded from here:
+#https://github.com/katholt/srst2
+#Please note the copyright notice for the original SRST2
+
 # SRST2 - Short Read Sequence Typer (v2)
 # Python Version 2.7.5
 #
