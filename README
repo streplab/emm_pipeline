@@ -20,4 +20,4 @@ Provided files: emm_pipeline.pl, SRST2_Mosaik.py altered to run using the Mosaik
 
 Please note that the emm.fasta and emm_reference.txt files are up to date as on January 2014.  It is the responsiblity of the user to make sure they have the most up to date version of the emm database available from ftp://ftp.cdc.gov/pub/infectious_diseases/biotech/tsemm/
 
-The emm_pipeline is not intended to report on emm subtype.  Public Health England's has established an emm typing pipeline with the ability to call emm subtypes.  If you require emm subtypes, their pipeline can be found at https://github.com/phe-bioinformatics/emm-typing-tool
+The emm_pipeline is not intended to report on emm subtype.  Public Health England's has established an emm typing pipeline with the ability to call emm subtypes.  If you require emm subtypes, their pipeline can be found at https://github.com/phe-bioinformatics/emm-typing-tool which is referenced in their paper which can be accessed from https://peerj.com/articles/3226/
