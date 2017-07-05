@@ -598,7 +598,7 @@ for($n = 1; $n < $count2; $n++){
 	}
 
 	#Records results into final results sheet
-	print $final_emm $blasted[$n][0] . "\t" . substr($blasted[$n][$emm-4],4) . "\n";
+	print $final_emm $blasted[$n][0] . "\t" . substr($blasted[$n][$emm-4], 4, index($blasted[$n][$emm-4], ".")-4) . "\n";
 
 	$storeNames[$n] = $blasted[$n][0];
 	
@@ -678,7 +678,7 @@ foreach $results(<SRST2>){
 	if($resultCount == 0){
 	}
 	elsif((any{/$reading[0]/} @storeNames) == 0){
-		print $final_emm "$reading[0]\t$reading[1]\n";
+		print $final_emm "$reading[0]\t" . substr($reading[1], 0, index($reading[1], ".")) . "\n";
 	}
 
 	$resultCount++;
